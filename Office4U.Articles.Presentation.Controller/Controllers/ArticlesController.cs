@@ -6,7 +6,9 @@ using Office4U.Articles.Data.Ef.SqlServer.Interfaces;  // TODO: refactor : THIS 
 using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
 using Office4U.Articles.ImportExport.Api.Extensions;
+using Office4U.Articles.ReadApplication.Article.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Office4U.Articles.ImportExport.Api.Controllers
@@ -18,31 +20,27 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IGetArticlesListQuery _listQuery;
+
         public ArticlesController(
             IUnitOfWork unitOfWork,
-            IMapper mapper)
+            IMapper mapper,
+            IGetArticlesListQuery listQuery)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _listQuery = listQuery;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ArticleDto>>> GetArticles(
             [FromQuery] ArticleParams articleParams)
         {
-            var articles = await _unitOfWork.ArticleRepository.GetArticlesAsync(articleParams);
+            var articles = await _listQuery.Execute(articleParams);
 
-            var articlesToReturn = _mapper.Map<IEnumerable<ArticleDto>>(articles);
+            Response.AddPaginationHeader(articles.CurrentPage, articles.PageSize, articles.TotalCount, articles.TotalPages);
 
-            // users is of type PagedList<User> 
-            // (inherits List, so it's a List of Users plus Pagination info)
-            Response.AddPaginationHeader(
-                articles.CurrentPage,
-                articles.PageSize,
-                articles.TotalCount,
-                articles.TotalPages);
-
-            return Ok(articlesToReturn);
+            return Ok(articles.AsEnumerable());
         }
 
         [HttpGet("{id}", Name = "GetArticle")]
@@ -85,7 +83,7 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
 
             return BadRequest("Failed to update article");
         }
-        
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArticle(int id)
         {

@@ -9,6 +9,8 @@ using Office4U.Articles.Data.Ef.SqlServer.UnitOfWork;
 using Office4U.Articles.ImportExport.Api.Helpers;
 using Office4U.Articles.ImportExport.Api.Services;
 using Office4U.Articles.ImportExport.Api.Services.Interfaces;
+using Office4U.Articles.ReadApplication.Article.Interfaces;
+using Office4U.Articles.ReadApplication.Article.Queries;
 
 namespace Office4U.Articles.ImportExport.Api.Extensions
 {
@@ -20,9 +22,14 @@ namespace Office4U.Articles.ImportExport.Api.Extensions
             )
         {
             services.AddScoped<ITokenService, TokenService>();
+
+            // TODO: move to application layer
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+            services.AddScoped<IGetArticlesListQuery, GetArticlesListQuery>();
+
+            // TODO: move to EF layer
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IArticleRepository, ArticleRepository>();
-            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));

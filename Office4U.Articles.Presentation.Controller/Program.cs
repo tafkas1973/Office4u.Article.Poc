@@ -15,6 +15,7 @@ namespace Office4U.Articles.ImportExport.Api
 
             var services = scope.ServiceProvider;
 
+            // TODO: replace to EF layer
             //try
             //{
             //    var context = services.GetRequiredService<DataContext>();

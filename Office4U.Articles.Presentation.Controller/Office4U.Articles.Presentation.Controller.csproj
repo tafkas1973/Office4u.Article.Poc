@@ -14,6 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Office4U.Articles.Data.Ef.SqlServer\Office4U.Articles.Data.Ef.SqlServer.csproj" />
     <ProjectReference Include="..\Office4U.Articles.Domain.Model\Office4U.Articles.Domain.Model.csproj" />
+    <ProjectReference Include="..\Office4U.Articles.ReadApplication\Office4U.Articles.ReadApplication.csproj" />
+    <ProjectReference Include="..\Office4U.Articles.WriteApplication\Office4U.Articles.WriteApplication.csproj" />
   </ItemGroup>
 
 </Project>
