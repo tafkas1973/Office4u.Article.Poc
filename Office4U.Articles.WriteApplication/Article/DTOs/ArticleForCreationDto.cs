@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article
+namespace Office4U.Articles.WriteApplication.Article.DTOs
 {
     public class ArticleForCreationDto
     {

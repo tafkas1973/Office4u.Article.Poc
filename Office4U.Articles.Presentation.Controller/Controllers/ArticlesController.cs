@@ -7,6 +7,7 @@ using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
 using Office4U.Articles.ImportExport.Api.Extensions;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
+using Office4U.Articles.WriteApplication.Article.DTOs;
 using Office4U.Articles.WriteApplication.Article.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,19 +23,22 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IGetArticlesListQuery _listQuery;
-        private readonly IUpdateArticleCommand _updateCommand;
+        private readonly ICreateArticleCommand _createCommand;
+        private readonly IUpdateArticleCommand _updateCommand;      
 
         public ArticlesController(
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IGetArticlesListQuery listQuery,
-            IUpdateArticleCommand updateCommand
+            ICreateArticleCommand createCommand,
+            IUpdateArticleCommand updateCommand         
             )
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _listQuery = listQuery;
-            _updateCommand = updateCommand;
+            _createCommand = createCommand;
+            _updateCommand = updateCommand;            
         }
 
         [HttpGet]
@@ -59,24 +63,26 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateArticle(ArticleForCreationDto newArticleDto)
+        public async Task<IActionResult> CreateArticle(ArticleForCreationDto articleForCreationDto)
         {
-            var newArticle = _mapper.Map<Article>(newArticleDto);
+            await _createCommand.Execute(articleForCreationDto);  
+            
+            return Ok();
 
-            _unitOfWork.ArticleRepository.Add(newArticle);
+            // TODO: handle errors & return correct status
 
-            if (await _unitOfWork.Commit())
-            {
-                var articleToReturn = _mapper.Map<ArticleForReturnDto>(newArticle);
-                return CreatedAtRoute("GetArticle", new { id = newArticle.Id }, articleToReturn);
-            }
+            //if (await _unitOfWork.Commit())
+            //{
+            //    var articleToReturn = _mapper.Map<ArticleForReturnDto>(newArticle);
+            //    return CreatedAtRoute("GetArticle", new { id = newArticle.Id }, articleToReturn);
+            //}
 
-            return BadRequest("Failed to create article");
+            //return BadRequest("Failed to create article");
         }
 
         [HttpPut]
         // TODO: restful: also specify id in parm list?
-        public async Task<ActionResult> UpdateArticle(WriteApplication.Article.DTOs.ArticleForUpdateDto articleUpdateDto)
+        public async Task<ActionResult> UpdateArticle(ArticleForUpdateDto articleUpdateDto)
         {
             await _updateCommand.Execute(articleUpdateDto);
 

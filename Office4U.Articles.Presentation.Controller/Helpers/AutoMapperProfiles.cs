@@ -3,6 +3,7 @@ using AutoMapper;
 using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.AppUser;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
+using Office4U.Articles.WriteApplication.Article.DTOs;
 
 namespace Office4U.Articles.ImportExport.Api.Helpers
 {
