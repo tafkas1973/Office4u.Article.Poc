@@ -2,8 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
 using Office4U.Articles.ReadApplication.Article.Queries;
+using Office4U.Articles.ReadApplication.Helpers;
 
-namespace Office4U.Articles.Data.Ef.SqlServer.Extensions
+namespace Office4U.Articles.ReadApplication.Extensions
 {
     public static class ServiceCollectionExtensions
     {

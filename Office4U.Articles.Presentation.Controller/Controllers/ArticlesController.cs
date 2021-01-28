@@ -1,10 +1,10 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Common;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;  // TODO: refactor : THIS IS NOT ALLOWED !!!
-using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
-using Office4U.Articles.ImportExport.Api.Extensions;
+//using Office4U.Articles.Data.Ef.SqlServer.Interfaces;  // TODO: refactor : THIS IS NOT ALLOWED !!!
+using Office4U.Articles.Presentation.Controller.Controllers.DTOs.Article;
+using Office4U.Articles.Presentation.Controller.Extensions;
+using Office4U.Articles.ReadApplication.Article.DTOs;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
 using Office4U.Articles.WriteApplication.Article.DTOs;
 using Office4U.Articles.WriteApplication.Article.Interfaces;
@@ -12,15 +12,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers
+namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     [Authorize(Policy = "RequireManageArticlesRole")]
     [ApiController]
     [Route("api/[controller]")]
     public class ArticlesController : ControllerBase
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
         private readonly IGetArticlesListQuery _listQuery;
         private readonly IGetArticleQuery _singleQuery;
         private readonly ICreateArticleCommand _createCommand;
@@ -28,8 +26,6 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         private readonly IDeleteArticleCommand _deleteCommand;
 
         public ArticlesController(
-            IUnitOfWork unitOfWork,
-            IMapper mapper,
             IGetArticlesListQuery listQuery,
             IGetArticleQuery singleQuery,
             ICreateArticleCommand createCommand,
@@ -37,8 +33,6 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
             IDeleteArticleCommand deleteCommand
             )
         {
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
             _listQuery = listQuery;
             _singleQuery = singleQuery;
             _createCommand = createCommand;

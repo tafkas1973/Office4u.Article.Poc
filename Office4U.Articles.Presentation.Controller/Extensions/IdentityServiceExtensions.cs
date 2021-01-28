@@ -7,7 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using Office4U.Articles.Data.Ef.SqlServer;
 using Office4U.Articles.Domain.Model.Entities;
 
-namespace Office4U.Articles.ImportExport.Api.Extensions
+namespace Office4U.Articles.Presentation.Controller.Extensions
 {
     public static class IdentityServiceExtensions
     {

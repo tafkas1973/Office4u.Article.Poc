@@ -1,6 +1,6 @@
 using System;
 
-namespace Office4U.Articles.ImportExport.Api.Extensions
+namespace Office4U.Articles.Presentation.Controller.Extensions
 {
     public static class DateTimeExtensions
     {

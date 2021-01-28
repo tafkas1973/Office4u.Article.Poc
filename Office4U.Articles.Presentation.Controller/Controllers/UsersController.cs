@@ -1,15 +1,15 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Common;
 using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
 using Office4U.Articles.Domain.Model.Entities;
-using Office4U.Articles.ImportExport.Api.Controllers.DTOs.AppUser;
-using Office4U.Articles.ImportExport.Api.Extensions;
+using Office4U.Articles.Presentation.Controller.Controllers.DTOs.AppUser;
+using Office4U.Articles.Presentation.Controller.Extensions;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers
+namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     [Authorize]
     public class UsersController : BaseApiController

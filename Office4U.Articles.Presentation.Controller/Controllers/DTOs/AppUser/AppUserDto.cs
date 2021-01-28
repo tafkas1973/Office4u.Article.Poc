@@ -1,6 +1,6 @@
 using System;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers.DTOs.AppUser
+namespace Office4U.Articles.Presentation.Controller.Controllers.DTOs.AppUser
 {
     public class AppUserDto
     {

@@ -1,13 +1,13 @@
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Office4U.Articles.Presentation.Controller.Errors;
 using System;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Office4U.Articles.ImportExport.Api.Errors;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace Office4U.Articles.ImportExport.Api.Middleware
+namespace Office4U.Articles.Presentation.Controller.Middleware
 {
     public class ExceptionMiddleware
     {

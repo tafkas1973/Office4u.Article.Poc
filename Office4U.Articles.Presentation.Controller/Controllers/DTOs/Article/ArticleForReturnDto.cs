@@ -1,4 +1,4 @@
-namespace Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article
+namespace Office4U.Articles.Presentation.Controller.Controllers.DTOs.Article
 {
     public class ArticleForReturnDto
     {

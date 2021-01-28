@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Data.Ef.SqlServer;
 using Office4U.Articles.Domain.Model.Entities;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers
+namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     public class BuggyController : BaseApiController
     {

@@ -1,13 +1,13 @@
-using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Office4U.Articles.Domain.Model.Entities; // TODO => check if direct reference is allowed (via application layer? mapping there?)
-using Office4U.Articles.ImportExport.Api.Controllers.DTOs.AppUser;
-using Office4U.Articles.ImportExport.Api.Services.Interfaces;
+using Office4U.Articles.Domain.Model.Entities; // TODO => move to application layer
+using Office4U.Articles.Presentation.Controller.Controllers.DTOs.AppUser;
+using Office4U.Articles.Presentation.Controller.Services.Interfaces;
+using System.Threading.Tasks;
 
-namespace Office4U.Articles.ImportExport.Api.Controllers
+namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     public class AccountController : BaseApiController
     {
@@ -52,7 +52,7 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
             };
         }
 
-       [HttpPost("login")]
+        [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
             var dbUser = await _userManager.Users

@@ -1,17 +1,17 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Presentation.Controller.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Office4U.Articles.ImportExport.Api.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using Office4U.Articles.Domain.Model.Entities;
 
-namespace Office4U.Articles.ImportExport.Api.Services
+namespace Office4U.Articles.Presentation.Controller.Services
 {
     public class TokenService : ITokenService
     {

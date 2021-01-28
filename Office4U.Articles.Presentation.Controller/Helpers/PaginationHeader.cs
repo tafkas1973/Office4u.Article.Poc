@@ -1,4 +1,4 @@
-namespace Office4U.Articles.ImportExport.Api.Helpers
+namespace Office4U.Articles.Presentation.Controller.Helpers
 {
     public class PaginationHeader
     {

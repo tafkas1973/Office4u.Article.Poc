@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Office4U.Articles.ImportExport.Api
+namespace Office4U.Articles.Presentation.Controller
 {
     public class Program
     {

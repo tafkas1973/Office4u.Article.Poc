@@ -1,11 +1,11 @@
-using Office4U.Articles.ImportExport.Api.Extensions;
-using Office4U.Articles.ImportExport.Api.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Office4U.Articles.Presentation.Controller.Extensions;
+using Office4U.Articles.Presentation.Controller.Middleware;
 
-namespace Office4U.Articles.ImportExport.Api
+namespace Office4U.Articles.Presentation.Controller
 {
     public class Startup
     {

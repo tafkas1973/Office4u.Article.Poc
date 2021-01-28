@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MockQueryable.Moq;
 using Moq;
-using Moq.Protected;
 using NUnit.Framework;
-using Office4U.Articles.ImportExport.Api.Data.Repositories.Interfaces;
-using Office4U.Articles.ImportExport.Api.Entities;
-using Office4U.Articles.ImportExport.Api.Helpers;
+using Office4U.Articles.Common;
+using Office4U.Articles.Data.Ef.SqlServer;
+using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
+using Office4U.Articles.Data.Ef.SqlServer.UnitOfWork;
+using Office4U.Articles.Domain.Model.Entities;
 using Retail4U.Office4U.WebApi.Tools.Data;
 using System.Collections.Generic;
 using System.Linq;

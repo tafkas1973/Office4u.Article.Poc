@@ -1,6 +1,6 @@
 using System.Security.Claims;
 
-namespace API.Extensions
+namespace Office4U.Articles.Presentation.Controller.Extensions
 {
     public static class ClaimsPrincipleExtensions
     {

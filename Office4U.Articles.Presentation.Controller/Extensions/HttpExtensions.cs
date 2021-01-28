@@ -1,8 +1,8 @@
-using System.Text.Json;
 using Microsoft.AspNetCore.Http;
-using Office4U.Articles.ImportExport.Api.Helpers;
+using Office4U.Articles.Presentation.Controller.Helpers;
+using System.Text.Json;
 
-namespace Office4U.Articles.ImportExport.Api.Extensions
+namespace Office4U.Articles.Presentation.Controller.Extensions
 {
     public static class HttpExtensions
     {
@@ -15,7 +15,7 @@ namespace Office4U.Articles.ImportExport.Api.Extensions
         {
             var paginationHeader = new PaginationHeader(
                 currentPage, itemsPerPage, totalItems, totalPages);
-                
+
             var options = new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase

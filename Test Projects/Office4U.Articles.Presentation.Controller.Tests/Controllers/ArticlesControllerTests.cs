@@ -2,11 +2,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
+using Office4U.Articles.Common;
+using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
+using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers;
-using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
-using Office4U.Articles.ImportExport.Api.Data.Repositories.Interfaces;
-using Office4U.Articles.ImportExport.Api.Entities;
-using Office4U.Articles.ImportExport.Api.Helpers;
+using Office4U.Articles.Presentation.Controller.Controllers;
+using Office4U.Articles.ReadApplication.Article.DTOs;
+using Office4U.Articles.ReadApplication.Article.Interfaces;
+using Office4U.Articles.ReadApplication.Helpers;
+using Office4U.Articles.WriteApplication.Article.DTOs;
+using Office4U.Articles.WriteApplication.Article.Interfaces;
 using Retail4U.Office4U.WebApi.Tools.Data;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +27,16 @@ namespace Office4U.Articles.ImportExport.Api.Tests.Controllers
         private IEnumerable<Article> _testArticles;
         private ArticlesController _articlesController;
 
+        private Mock<IGetArticlesListQuery> _listQueryMock = new Mock<IGetArticlesListQuery>();
+        private Mock<IGetArticleQuery> _singleQueryMock = new Mock<IGetArticleQuery>();
+        private Mock<ICreateArticleCommand> _createCommandMock = new Mock<ICreateArticleCommand>();
+        private Mock<IUpdateArticleCommand> _updateCommandMock = new Mock<IUpdateArticleCommand>();
+        private Mock<IDeleteArticleCommand> _deleteCommandMock = new Mock<IDeleteArticleCommand>();
+
+
         [SetUp]
         public void Setup()
-        {           
+        {
             _articleRepositoryMock = new Mock<IArticleRepository>() { DefaultValue = DefaultValue.Mock };
             _unitOfWorkMock = new Mock<IUnitOfWork>();
             _unitOfWorkMock.Setup(m => m.ArticleRepository).Returns(_articleRepositoryMock.Object);
@@ -45,7 +57,7 @@ namespace Office4U.Articles.ImportExport.Api.Tests.Controllers
                 .ReturnsAsync(articlesPagedList[1]);
 
             var mapper = new Mapper(new MapperConfiguration(cfg => cfg.AddProfile<AutoMapperProfiles>()));
-            _articlesController = new ArticlesController(_unitOfWorkMock.Object, mapper) { ControllerContext = TestControllerContext };
+            _articlesController = new ArticlesController(_listQueryMock.Object, _singleQueryMock.Object, _createCommandMock.Object, _updateCommandMock.Object, _deleteCommandMock.Object);
         }
 
         [Test]
@@ -85,10 +97,10 @@ namespace Office4U.Articles.ImportExport.Api.Tests.Controllers
         public async Task GetArticle_WithNonExistingId_ReturnsTheCorrectArticleDto()
         {
             // arrange
-            var articleUpdateDto = new ArticleUpdateDto() { Id = 5, Name1 = "Article01 Updated" };
-             
+            var articleForUpdateDto = new ArticleForUpdateDto() { Id = 5, Name1 = "Article01 Updated" };
+
             // act
-            var result = await _articlesController.UpdateArticle(articleUpdateDto);
+            var result = await _articlesController.UpdateArticle(articleForUpdateDto);
 
             // assert
             _articleRepositoryMock.Verify(m => m.Update(It.IsAny<Article>()), Times.Once);

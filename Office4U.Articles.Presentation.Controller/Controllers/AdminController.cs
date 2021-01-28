@@ -1,13 +1,12 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Office4U.Articles.Domain.Model.Entities;
-using Office4U.Articles.ImportExport.Api.Controllers;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Api.Controllers
+namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     [Authorize(Policy = "RequireAdminRole")]
     public class AdminController : BaseApiController
@@ -17,7 +16,7 @@ namespace Api.Controllers
         {
             _userManager = userManager;
         }
-        
+
         [HttpGet("users-with-roles")]
         public async Task<ActionResult> GetUsersWithRoles()
         {
