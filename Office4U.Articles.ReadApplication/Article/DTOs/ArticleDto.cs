@@ -1,7 +1,6 @@
-﻿using Office4U.Articles.ReadApplication.Article.DTOs;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Office4U.Articles.ReadApplication.Article.DTO
+namespace Office4U.Articles.ReadApplication.Article.DTOs
 {
     public class ArticleDto
     {

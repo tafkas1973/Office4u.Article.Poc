@@ -1,7 +1,7 @@
-﻿using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
-using Office4U.Articles.ReadApplication.Article.DTO;
+﻿using AutoMapper;
+using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
+using Office4U.Articles.ReadApplication.Article.DTOs;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Office4U.Articles.ReadApplication.Article.Queries
@@ -11,36 +11,19 @@ namespace Office4U.Articles.ReadApplication.Article.Queries
     public class GetArticleQuery : IGetArticleQuery
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public GetArticleQuery(IUnitOfWork unitOfWork)
+        public GetArticleQuery(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<ArticleDto> Execute(int id)
         {
             var article = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(id);
 
-            // TODO mapper in application read 
-            // var articleToReturn = _mapper.Map<ArticleDto>(article);
-
-            var articleDto = new ArticleDto()
-            {
-                Id = article.Id,
-                Code = article.Code,
-                SupplierId = article.SupplierId,
-                SupplierReference = article.SupplierReference,
-                Name1 = article.Name1,
-                Unit = article.Unit,
-                PurchasePrice = article.PurchasePrice,
-                PhotoUrl = article.Photos.Any() ? article.Photos.First().Url : string.Empty,
-                Photos = article.Photos.Select(p => new DTOs.ArticlePhotoDto()
-                {
-                    Id = p.Id,
-                    IsMain = p.IsMain,
-                    Url = p.Url
-                }).ToList()
-            };
+            var articleDto = _mapper.Map<ArticleDto>(article);
 
             return articleDto;
         }

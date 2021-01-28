@@ -13,11 +13,11 @@ namespace Office4U.Articles.ImportExport.Api.Helpers
         {
             CreateMap<AppUser, AppUserDto>();
 
-            CreateMap<Article, ArticleDto>()
-                .ForMember(
-                    dest => dest.PhotoUrl,
-                    options => options.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
-            CreateMap<ArticlePhoto, ArticlePhotoDto>();
+            //CreateMap<Article, ArticleDto>()
+            //    .ForMember(
+            //        dest => dest.PhotoUrl,
+            //        options => options.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
+            //CreateMap<ArticlePhoto, ArticlePhotoDto>();
             CreateMap<ArticleUpdateDto, Article>();
             CreateMap<ArticleForCreationDto, Article>();
             CreateMap<Article, ArticleForReturnDto>();
