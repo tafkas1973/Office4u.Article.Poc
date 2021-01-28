@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Office4U.Articles.Data.Ef.SqlServer.Extensions;
 
 namespace Office4U.Articles.Presentation.Controller
 {
@@ -15,21 +16,7 @@ namespace Office4U.Articles.Presentation.Controller
 
             var services = scope.ServiceProvider;
 
-            // TODO: replace to EF layer
-            //try
-            //{
-            //    var context = services.GetRequiredService<DataContext>();
-            //    var userManager = services.GetRequiredService<UserManager<AppUser>>();
-            //    var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
-            //    await context.Database.MigrateAsync();
-            //    await Seed.SeedUsers(userManager, roleManager);
-            //    await Seed.SeedArticles(context);
-            //}
-            //catch (Exception ex)
-            //{
-            //    var logger = services.GetRequiredService<ILogger<Program>>();
-            //    logger.LogError(ex, "An error occured during migration");
-            //}
+            await services.SeedDatabase();
 
             await hostBuilder.RunAsync();
         }

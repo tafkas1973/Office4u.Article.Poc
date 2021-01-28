@@ -1,4 +1,4 @@
-namespace Office4U.Articles.Presentation.Controller.Controllers.DTOs.Article
+namespace Office4U.Articles.WriteApplication.Article.DTOs
 {
     public class ArticleForReturnDto
     {
