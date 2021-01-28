@@ -24,21 +24,24 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         private readonly IMapper _mapper;
         private readonly IGetArticlesListQuery _listQuery;
         private readonly ICreateArticleCommand _createCommand;
-        private readonly IUpdateArticleCommand _updateCommand;      
+        private readonly IUpdateArticleCommand _updateCommand;
+        private readonly IDeleteArticleCommand _deleteCommand;
 
         public ArticlesController(
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IGetArticlesListQuery listQuery,
             ICreateArticleCommand createCommand,
-            IUpdateArticleCommand updateCommand         
+            IUpdateArticleCommand updateCommand,
+            IDeleteArticleCommand deleteCommand
             )
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _listQuery = listQuery;
             _createCommand = createCommand;
-            _updateCommand = updateCommand;            
+            _updateCommand = updateCommand;
+            _deleteCommand = deleteCommand;
         }
 
         [HttpGet]
@@ -86,24 +89,28 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         {
             await _updateCommand.Execute(articleUpdateDto);
 
+            return NoContent();
+
+            // TODO: handle errors
+
             //if (await _unitOfWork.Commit()) return NoContent();
 
             //return BadRequest("Failed to update article");
-
-            return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArticle(int id)
         {
-            var articleToDelete = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(id);
+            await _deleteCommand.Execute(id);
 
-            _unitOfWork.ArticleRepository.Delete(articleToDelete);
+            return Ok();
 
-            if (await _unitOfWork.Commit())
-                return Ok();
+            // TODO: handle errors
 
-            return BadRequest("Failed to delete article");
+            //if (await _unitOfWork.Commit())
+            //    return Ok();
+
+            //return BadRequest("Failed to delete article");
         }
     }
 }

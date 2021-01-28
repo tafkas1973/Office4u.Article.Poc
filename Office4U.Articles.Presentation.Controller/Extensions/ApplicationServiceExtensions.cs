@@ -30,6 +30,7 @@ namespace Office4U.Articles.ImportExport.Api.Extensions
             services.AddScoped<IGetArticlesListQuery, GetArticlesListQuery>();
             services.AddScoped<ICreateArticleCommand, CreateArticleCommand>();
             services.AddScoped<IUpdateArticleCommand, UpdateArticleCommand>();
+            services.AddScoped<IDeleteArticleCommand, DeleteArticleCommand>();
 
             // TODO: move to EF layer
             services.AddScoped<IUnitOfWork, UnitOfWork>();
