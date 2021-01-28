@@ -7,6 +7,7 @@ using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
 using Office4U.Articles.ImportExport.Api.Extensions;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
+using Office4U.Articles.WriteApplication.Article.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,15 +22,19 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IGetArticlesListQuery _listQuery;
+        private readonly IUpdateArticleCommand _updateCommand;
 
         public ArticlesController(
             IUnitOfWork unitOfWork,
             IMapper mapper,
-            IGetArticlesListQuery listQuery)
+            IGetArticlesListQuery listQuery,
+            IUpdateArticleCommand updateCommand
+            )
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _listQuery = listQuery;
+            _updateCommand = updateCommand;
         }
 
         [HttpGet]
@@ -71,17 +76,15 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
 
         [HttpPut]
         // TODO: restful: also specify id in parm list?
-        public async Task<ActionResult> UpdateArticle(ArticleUpdateDto articleUpdateDto)
+        public async Task<ActionResult> UpdateArticle(WriteApplication.Article.DTOs.ArticleForUpdateDto articleUpdateDto)
         {
-            var article = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(articleUpdateDto.Id);
+            await _updateCommand.Execute(articleUpdateDto);
 
-            _mapper.Map(articleUpdateDto, article);
+            //if (await _unitOfWork.Commit()) return NoContent();
 
-            _unitOfWork.ArticleRepository.Update(article);
+            //return BadRequest("Failed to update article");
 
-            if (await _unitOfWork.Commit()) return NoContent();
-
-            return BadRequest("Failed to update article");
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

@@ -116,7 +116,6 @@ export class ArticleListComponent implements OnInit, OnDestroy {
             this.loadArticles(true);
             this.toastr.success("Article was created");
           }, error => {
-            console.log('errors', error);
             this.validationErrors = [];
             Object.assign(this.validationErrors, error);
             this.modalRef.content.validationErrors = this.validationErrors;

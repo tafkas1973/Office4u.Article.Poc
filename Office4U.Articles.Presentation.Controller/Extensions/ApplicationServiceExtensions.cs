@@ -11,6 +11,8 @@ using Office4U.Articles.ImportExport.Api.Services;
 using Office4U.Articles.ImportExport.Api.Services.Interfaces;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
 using Office4U.Articles.ReadApplication.Article.Queries;
+using Office4U.Articles.WriteApplication.Article.Commands;
+using Office4U.Articles.WriteApplication.Article.Interfaces;
 
 namespace Office4U.Articles.ImportExport.Api.Extensions
 {
@@ -26,6 +28,7 @@ namespace Office4U.Articles.ImportExport.Api.Extensions
             // TODO: move to application layer
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddScoped<IGetArticlesListQuery, GetArticlesListQuery>();
+            services.AddScoped<IUpdateArticleCommand, UpdateArticleCommand>();
 
             // TODO: move to EF layer
             services.AddScoped<IUnitOfWork, UnitOfWork>();
