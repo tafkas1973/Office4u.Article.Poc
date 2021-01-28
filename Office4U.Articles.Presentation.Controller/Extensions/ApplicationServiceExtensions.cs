@@ -28,6 +28,7 @@ namespace Office4U.Articles.ImportExport.Api.Extensions
             // TODO: move to application layer
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddScoped<IGetArticlesListQuery, GetArticlesListQuery>();
+            services.AddScoped<IGetArticleQuery, GetArticleQuery>();
             services.AddScoped<ICreateArticleCommand, CreateArticleCommand>();
             services.AddScoped<IUpdateArticleCommand, UpdateArticleCommand>();
             services.AddScoped<IDeleteArticleCommand, DeleteArticleCommand>();

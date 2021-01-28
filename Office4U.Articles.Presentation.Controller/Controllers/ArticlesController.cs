@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Common;
 using Office4U.Articles.Data.Ef.SqlServer.Interfaces;  // TODO: refactor : THIS IS NOT ALLOWED !!!
-using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers.DTOs.Article;
 using Office4U.Articles.ImportExport.Api.Extensions;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
@@ -23,6 +22,7 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IGetArticlesListQuery _listQuery;
+        private readonly IGetArticleQuery _singleQuery;
         private readonly ICreateArticleCommand _createCommand;
         private readonly IUpdateArticleCommand _updateCommand;
         private readonly IDeleteArticleCommand _deleteCommand;
@@ -31,6 +31,7 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
             IUnitOfWork unitOfWork,
             IMapper mapper,
             IGetArticlesListQuery listQuery,
+            IGetArticleQuery singleQuery,
             ICreateArticleCommand createCommand,
             IUpdateArticleCommand updateCommand,
             IDeleteArticleCommand deleteCommand
@@ -39,6 +40,7 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _listQuery = listQuery;
+            _singleQuery = singleQuery;
             _createCommand = createCommand;
             _updateCommand = updateCommand;
             _deleteCommand = deleteCommand;
@@ -58,18 +60,14 @@ namespace Office4U.Articles.ImportExport.Api.Controllers
         [HttpGet("{id}", Name = "GetArticle")]
         public async Task<ActionResult<ArticleDto>> GetArticle(int id)
         {
-            var article = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(id);
-
-            var articleToReturn = _mapper.Map<ArticleDto>(article);
-
-            return articleToReturn;
+            return Ok(await _singleQuery.Execute(id));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateArticle(ArticleForCreationDto articleForCreationDto)
         {
-            await _createCommand.Execute(articleForCreationDto);  
-            
+            await _createCommand.Execute(articleForCreationDto);
+
             return Ok();
 
             // TODO: handle errors & return correct status
