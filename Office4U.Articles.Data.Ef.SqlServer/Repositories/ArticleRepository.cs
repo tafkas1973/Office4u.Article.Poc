@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Office4U.Articles.Data.Ef.SqlServer.Contexts;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Articles;
 using Office4U.Articles.WriteApplication.Article.Interfaces.IOC;
 using System.Threading.Tasks;
 

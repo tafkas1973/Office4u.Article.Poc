@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Office4U.Articles.Common;
 using Office4U.Articles.Data.Ef.SqlServer.Contexts;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Users;
 using Office4U.Articles.WriteApplication.User.Interfaces;
 using System.Threading.Tasks;
 

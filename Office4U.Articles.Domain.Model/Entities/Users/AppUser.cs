@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Identity;
 using Office4U.Articles.Common;
 
-namespace Office4U.Articles.Domain.Model.Entities
+namespace Office4U.Articles.Domain.Model.Entities.Users
 {
     public class AppUser: IdentityUser<int>
     {

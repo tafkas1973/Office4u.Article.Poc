@@ -18,7 +18,7 @@ namespace Office4U.Articles.WriteApplication.Article.Commands
         {
             // TODO mapping via DI !!           
             // var newArticle = _mapper.Map<Article>(newArticleDto);
-            var newArticle = Domain.Model.Entities.Article.Create(
+            var newArticle = Domain.Model.Entities.Articles.Article.Create(
                 articleForCreation.Code,
                 articleForCreation.SupplierId,
                 articleForCreation.SupplierReference,

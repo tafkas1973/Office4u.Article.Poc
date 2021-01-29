@@ -16,7 +16,8 @@ namespace Office4U.Articles.WriteApplication.Article.Commands
 
         public async Task Execute(ArticleForUpdateDto articleForUpdate)
         {
-            Domain.Model.Entities.Article article = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(articleForUpdate.Id);
+            Domain.Model.Entities.Articles.Article article = 
+                await _unitOfWork.ArticleRepository.GetArticleByIdAsync(articleForUpdate.Id);
 
             // TODO mapping via DI !!           
             //mapper.Map(articleForUpdate, article);

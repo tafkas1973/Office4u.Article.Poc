@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Articles;
+using Office4U.Articles.Domain.Model.Entities.Users;
 using Office4U.Articles.Presentation.Controller.Services.Interfaces;
 using System;
 using System.Collections.Generic;

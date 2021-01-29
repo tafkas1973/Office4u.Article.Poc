@@ -7,8 +7,8 @@ namespace Office4U.Articles.WriteApplication.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<ArticleForUpdateDto, Domain.Model.Entities.Article>();
-            CreateMap<ArticleForCreationDto, Domain.Model.Entities.Article>();
+            CreateMap<ArticleForUpdateDto, Domain.Model.Entities.Articles.Article>();
+            CreateMap<ArticleForCreationDto, Domain.Model.Entities.Articles.Article>();
             //CreateMap<Article, ArticleForReturnDto>();
 
             //CreateMap<RegisterDto, AppUser>();

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Users;
 using System.Linq;
 using System.Threading.Tasks;
 

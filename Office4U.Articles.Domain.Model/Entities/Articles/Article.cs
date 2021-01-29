@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Office4U.Articles.Domain.Model.Entities
+namespace Office4U.Articles.Domain.Model.Entities.Articles
 {
     public class Article
     {

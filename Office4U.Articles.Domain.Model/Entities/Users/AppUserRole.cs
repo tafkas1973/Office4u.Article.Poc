@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 
-namespace Office4U.Articles.Domain.Model.Entities
+namespace Office4U.Articles.Domain.Model.Entities.Users
 {
     public class AppUserRole: IdentityUserRole<int>
     {

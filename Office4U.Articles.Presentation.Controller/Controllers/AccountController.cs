@@ -2,7 +2,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Office4U.Articles.Domain.Model.Entities; // TODO => move to application layer
+using Office4U.Articles.Domain.Model.Entities.Users;
 using Office4U.Articles.Presentation.Controller.Controllers.DTOs.AppUser;
 using Office4U.Articles.Presentation.Controller.Services.Interfaces;
 using System.Threading.Tasks;

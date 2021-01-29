@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Data.Ef.SqlServer.Contexts;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Users;
 
 namespace Office4U.Articles.Presentation.Controller.Controllers
 {

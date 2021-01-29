@@ -4,7 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Office4U.Articles.Data.Ef.SqlServer.Contexts;
-using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.Domain.Model.Entities.Articles;
+using Office4U.Articles.Domain.Model.Entities.Users;
 using System.Text;
 
 namespace Office4U.Articles.Presentation.Controller.Extensions
