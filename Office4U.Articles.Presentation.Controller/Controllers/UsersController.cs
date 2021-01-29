@@ -2,15 +2,19 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Office4U.Articles.Common;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
 using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.Presentation.Controller.Controllers.DTOs.AppUser;
 using Office4U.Articles.Presentation.Controller.Extensions;
+using Office4U.Articles.WriteApplication.Interfaces.IOC;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Office4U.Articles.Presentation.Controller.Controllers
 {
+
+
+    // TODO: REFACTOR toward DDD principles & remove EF reference!!!
+
     [Authorize]
     public class UsersController : BaseApiController
     {

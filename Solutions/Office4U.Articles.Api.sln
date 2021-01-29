@@ -33,15 +33,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Presentat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Presentation.Controller.Tests", "..\Test Projects\Office4U.Articles.Presentation.Controller.Tests\Office4U.Articles.Presentation.Controller.Tests.csproj", "{5633CAFC-CD1B-45A5-8D4B-37991F6C87D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office4U.Articles.Data.Ef.SqlServer", "..\Office4U.Articles.Data.Ef.SqlServer\Office4U.Articles.Data.Ef.SqlServer.csproj", "{00973E76-42BF-4623-88F2-08A90592369C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Data.Ef.SqlServer", "..\Office4U.Articles.Data.Ef.SqlServer\Office4U.Articles.Data.Ef.SqlServer.csproj", "{00973E76-42BF-4623-88F2-08A90592369C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office4U.Articles.Domain.Model", "..\Office4U.Articles.Domain.Model\Office4U.Articles.Domain.Model.csproj", "{95D3ED44-0D36-4619-86E8-BC090E5BA778}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Domain.Model", "..\Office4U.Articles.Domain.Model\Office4U.Articles.Domain.Model.csproj", "{95D3ED44-0D36-4619-86E8-BC090E5BA778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office4U.Articles.Common", "..\Office4U.Articles.Common\Office4U.Articles.Common.csproj", "{45988230-4AA2-44D5-B417-31E3EE69DDCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Common", "..\Office4U.Articles.Common\Office4U.Articles.Common.csproj", "{45988230-4AA2-44D5-B417-31E3EE69DDCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office4U.Articles.ReadApplication", "..\Office4U.Articles.ReadApplication\Office4U.Articles.ReadApplication.csproj", "{9E835DD0-7390-4DA2-A613-051FCCE369A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.ReadApplication", "..\Office4U.Articles.ReadApplication\Office4U.Articles.ReadApplication.csproj", "{9E835DD0-7390-4DA2-A613-051FCCE369A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Office4U.Articles.WriteApplication", "..\Office4U.Articles.WriteApplication\Office4U.Articles.WriteApplication.csproj", "{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.WriteApplication", "..\Office4U.Articles.WriteApplication\Office4U.Articles.WriteApplication.csproj", "{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Office4U.Articles.Application", "..\Office4U.Articles.Application\Office4U.Articles.Application.csproj", "{F4E1A82F-438E-401F-9254-A335078A7F78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -137,6 +139,18 @@ Global
 		{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7}.Release|x64.Build.0 = Release|Any CPU
 		{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7}.Release|x86.ActiveCfg = Release|Any CPU
 		{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7}.Release|x86.Build.0 = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|x64.Build.0 = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|x64.ActiveCfg = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|x64.Build.0 = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4E1A82F-438E-401F-9254-A335078A7F78}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +169,7 @@ Global
 		{45988230-4AA2-44D5-B417-31E3EE69DDCD} = {B227B9EE-C67D-4EF2-B51B-9F1CE6C7BCEB}
 		{9E835DD0-7390-4DA2-A613-051FCCE369A4} = {5BF90120-2F1B-4A38-B0F7-C804460122EE}
 		{E3F0D4D1-D61F-4D80-BBA2-D3EEEA003AE7} = {5BF90120-2F1B-4A38-B0F7-C804460122EE}
+		{F4E1A82F-438E-401F-9254-A335078A7F78} = {5BF90120-2F1B-4A38-B0F7-C804460122EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E83F2F4F-2956-4A8A-9989-88C0814AC54E}

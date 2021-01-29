@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Moq;
 using NUnit.Framework;
 using Office4U.Articles.Common;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
 using Office4U.Articles.Domain.Model.Entities;
 using Office4U.Articles.ImportExport.Api.Controllers;
 using Office4U.Articles.Presentation.Controller.Controllers;

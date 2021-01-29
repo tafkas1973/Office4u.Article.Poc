@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using Office4U.Articles.Domain.Model.Entities;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
 using Office4U.Articles.Common;
+using Office4U.Articles.Data.Ef.SqlServer.Contexts;
+using Office4U.Articles.Domain.Model.Entities;
+using Office4U.Articles.WriteApplication.User.Interfaces;
+using System.Threading.Tasks;
 
 namespace Office4U.Articles.Data.Ef.SqlServer.Repositories
 {

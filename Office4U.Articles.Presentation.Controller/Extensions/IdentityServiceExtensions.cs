@@ -1,11 +1,11 @@
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Office4U.Articles.Data.Ef.SqlServer;
+using Office4U.Articles.Data.Ef.SqlServer.Contexts;
 using Office4U.Articles.Domain.Model.Entities;
+using System.Text;
 
 namespace Office4U.Articles.Presentation.Controller.Extensions
 {
@@ -24,7 +24,7 @@ namespace Office4U.Articles.Presentation.Controller.Extensions
                 .AddRoleManager<RoleManager<AppRole>>()
                 .AddSignInManager<SignInManager<AppUser>>()
                 .AddRoleValidator<RoleValidator<AppRole>>()
-                .AddEntityFrameworkStores<DataContext>(); // TODO: refactor !!
+                .AddEntityFrameworkStores<DataContext>(); 
 
             services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

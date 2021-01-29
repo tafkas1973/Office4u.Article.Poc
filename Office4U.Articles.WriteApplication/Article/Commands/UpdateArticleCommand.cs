@@ -1,6 +1,6 @@
-﻿using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
-using Office4U.Articles.WriteApplication.Article.DTOs;
+﻿using Office4U.Articles.WriteApplication.Article.DTOs;
 using Office4U.Articles.WriteApplication.Article.Interfaces;
+using Office4U.Articles.WriteApplication.Interfaces.IOC;
 using System.Threading.Tasks;
 
 namespace Office4U.Articles.WriteApplication.Article.Commands

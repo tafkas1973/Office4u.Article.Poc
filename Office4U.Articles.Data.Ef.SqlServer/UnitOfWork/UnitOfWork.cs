@@ -1,6 +1,9 @@
-using System.Threading.Tasks;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
+using Office4U.Articles.Data.Ef.SqlServer.Contexts;
 using Office4U.Articles.Data.Ef.SqlServer.Repositories;
+using Office4U.Articles.WriteApplication.Article.Interfaces.IOC;
+using Office4U.Articles.WriteApplication.Interfaces.IOC;
+using Office4U.Articles.WriteApplication.User.Interfaces;
+using System.Threading.Tasks;
 
 namespace Office4U.Articles.Data.Ef.SqlServer.UnitOfWork
 {

@@ -1,6 +1,8 @@
+using Office4U.Articles.WriteApplication.Article.Interfaces.IOC;
+using Office4U.Articles.WriteApplication.User.Interfaces;
 using System.Threading.Tasks;
 
-namespace Office4U.Articles.Data.Ef.SqlServer.Interfaces
+namespace Office4U.Articles.WriteApplication.Interfaces.IOC
 {
     public interface IUnitOfWork
     {

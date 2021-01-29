@@ -15,6 +15,7 @@ namespace Office4U.Articles.ReadApplication.Helpers
                 .ForMember(
                     dest => dest.PhotoUrl,
                     options => options.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
+
             CreateMap<ArticlePhoto, ArticlePhotoDto>();
         }
     }

@@ -1,27 +1,27 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Office4U.Articles.Data.Ef.SqlServer;
+using Office4U.Articles.Data.Ef.SqlServer.Contexts;
 using Office4U.Articles.Domain.Model.Entities;
 
 namespace Office4U.Articles.Presentation.Controller.Controllers
 {
     public class BuggyController : BaseApiController
     {
-        private readonly DataContext _context;
-        public BuggyController(DataContext context)
+        private readonly ReadOnlyDataContext _context;
+        public BuggyController(ReadOnlyDataContext context)
         {
             _context = context;
         }
 
         [Authorize]
         [HttpGet("auth")]
-        public ActionResult<string> GetSecret() 
+        public ActionResult<string> GetSecret()
         {
             return "secret text";
         }
 
         [HttpGet("not-found")]
-        public ActionResult<AppUser> GetNotFound() 
+        public ActionResult<AppUser> GetNotFound()
         {
             var thing = _context.Users.Find(-1);
 
@@ -31,7 +31,7 @@ namespace Office4U.Articles.Presentation.Controller.Controllers
         }
 
         [HttpGet("server-error")]
-        public ActionResult<string> GetServerError() 
+        public ActionResult<string> GetServerError()
         {
             var thing = _context.Users.Find(-1);
 
@@ -41,7 +41,7 @@ namespace Office4U.Articles.Presentation.Controller.Controllers
         }
 
         [HttpGet("bad-request")]
-        public ActionResult<string> GetBadRequest() 
+        public ActionResult<string> GetBadRequest()
         {
             return BadRequest("This was not a good request");
         }

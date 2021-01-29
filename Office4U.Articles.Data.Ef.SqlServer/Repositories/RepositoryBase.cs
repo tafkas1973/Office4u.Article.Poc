@@ -1,4 +1,5 @@
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
+using Office4U.Articles.Data.Ef.SqlServer.Contexts;
+using Office4U.Articles.WriteApplication.Interfaces.IOC;
 
 namespace Office4U.Articles.Data.Ef.SqlServer.Repositories
 {

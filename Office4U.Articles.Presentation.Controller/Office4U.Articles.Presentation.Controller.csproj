@@ -6,14 +6,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Office4U.Articles.Application\Office4U.Articles.Application.csproj" />
     <ProjectReference Include="..\Office4U.Articles.Data.Ef.SqlServer\Office4U.Articles.Data.Ef.SqlServer.csproj" />
-    <ProjectReference Include="..\Office4U.Articles.Domain.Model\Office4U.Articles.Domain.Model.csproj" />
-    <ProjectReference Include="..\Office4U.Articles.ReadApplication\Office4U.Articles.ReadApplication.csproj" />
-    <ProjectReference Include="..\Office4U.Articles.WriteApplication\Office4U.Articles.WriteApplication.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,10 +6,14 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Office4U.Articles.Data.Ef.SqlServer\Office4U.Articles.Data.Ef.SqlServer.csproj" />
+    <ProjectReference Include="..\Office4U.Articles.Common\Office4U.Articles.Common.csproj" />
+    <ProjectReference Include="..\Office4U.Articles.Domain.Model\Office4U.Articles.Domain.Model.csproj" />
   </ItemGroup>
 
 </Project>

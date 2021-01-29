@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Office4U.Articles.Data.Ef.SqlServer.Interfaces;
 using Office4U.Articles.ReadApplication.Article.DTOs;
 using Office4U.Articles.ReadApplication.Article.Interfaces;
+using Office4U.Articles.ReadApplication.Article.Interfaces.IOC;
 using System.Threading.Tasks;
 
 namespace Office4U.Articles.ReadApplication.Article.Queries
@@ -10,18 +10,21 @@ namespace Office4U.Articles.ReadApplication.Article.Queries
 
     public class GetArticleQuery : IGetArticleQuery
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IReadOnlyArticleRepository _readOnlyArticleRepository;
         private readonly IMapper _mapper;
 
-        public GetArticleQuery(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetArticleQuery(
+            IReadOnlyArticleRepository readOnlyArticleRepository, 
+            IMapper mapper
+            )
         {
-            _unitOfWork = unitOfWork;
+            _readOnlyArticleRepository = readOnlyArticleRepository;
             _mapper = mapper;
         }
 
         public async Task<ArticleDto> Execute(int id)
         {
-            var article = await _unitOfWork.ArticleRepository.GetArticleByIdAsync(id);
+            var article = await _readOnlyArticleRepository.GetArticleByIdAsync(id);
 
             var articleDto = _mapper.Map<ArticleDto>(article);
 
